@@ -20,6 +20,7 @@ class ControllView extends StatelessWidget {
                 builder: (controller) => Scaffold(
                   body: controller.currentView,
                   floatingActionButton: FloatingActionButton(
+                    heroTag: "btn1",
                     backgroundColor: mainLightColor,
                     elevation: 0.0,
                     child: IconButton(

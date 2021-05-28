@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:socialapp/core/services/user_service.dart';
 import 'package:socialapp/view/views.dart';
 
+import 'core/view_model/view_model.dart';
 import 'helper/helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Get.put(ProfileViewModel());
   // CacheHelper.removeData('token');
   runApp(MyApp());
 }

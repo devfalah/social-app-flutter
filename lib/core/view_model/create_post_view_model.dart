@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:socialapp/core/services/post_service.dart';
+import 'package:socialapp/core/view_model/view_model.dart';
 import 'package:socialapp/helper/helper.dart';
 import 'package:socialapp/view/views.dart';
 
@@ -11,6 +13,11 @@ class PostViewModel extends GetxController {
   String description;
   File image;
   String imageUrl;
+  String userImageUrl;
+  PostViewModel() {
+    ProfileViewModel profileViewModel = Get.find();
+    userImageUrl = profileViewModel.user.imageUrl;
+  }
 
   final picker = ImagePicker();
   Future getImage(ImageSource source) async {
@@ -48,11 +55,13 @@ class PostViewModel extends GetxController {
 
   addPost() async {
     upload();
+    var id = await CacheHelper.getData('id');
 
     print(description);
     print("+++++" + imageUrl);
     final res = await PostService().addPost({
       "description": description,
+      'users_permissions_user': id,
       "imageUrl": imageUrl ?? "",
     });
     if (res.statusCode == 200) {

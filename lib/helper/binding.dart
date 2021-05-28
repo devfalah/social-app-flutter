@@ -9,5 +9,6 @@ class Binding extends Bindings {
     Get.lazyPut(() => ControlViewModel());
     Get.lazyPut(() => PostViewModel());
     Get.lazyPut(() => ProfileViewModel());
+    Get.lazyPut(() => SearchViewModel());
   }
 }

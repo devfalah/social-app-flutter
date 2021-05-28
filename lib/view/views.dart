@@ -6,3 +6,5 @@ export 'search_view.dart';
 export 'notifications_view.dart';
 export 'create_post_view.dart';
 export 'profile_view.dart';
+export 'user_view.dart';
+export 'post_detail_view.dart';

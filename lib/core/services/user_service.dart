@@ -2,7 +2,7 @@ import 'package:socialapp/helper/helper.dart';
 import 'package:socialapp/model/models.dart';
 
 class UserService {
-  getUserData() async {
+  Future<UserModel> getUserData() async {
     var token = await CacheHelper.getData('token');
     final res = await HttpHelper.get(
       path: "users/me/",

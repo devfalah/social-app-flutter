@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:socialapp/helper/helper.dart';
 import 'package:socialapp/model/models.dart';
 import 'package:socialapp/view/widget/widgets.dart';
+
+import '../views.dart';
 
 class PostCard extends StatelessWidget {
   final PostModel post;
@@ -17,39 +20,63 @@ class PostCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CustomText(
-                  text: "@falahhassan",
-                ),
-                SizedBox(width: 10.0),
-                CustomText(
-                  text: "Falahhassan",
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(width: 10.0),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.network(
-                    "$mainUrl${post.image}",
-                    height: 40,
-                    width: 40,
-                    fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Get.to(UserView(
+                  user: post.user,
+                ));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image.network(
+                      "$mainUrl${post.user.imageUrl}",
+                      height: 40,
+                      width: 40,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(width: 8.0),
+                  CustomText(
+                    text: post.user.name,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(width: 2.0),
+                  if (post.user.isVerfied)
+                    Icon(
+                      Icons.check_circle,
+                      size: 16,
+                      color: mainLightColor,
+                    ),
+                  SizedBox(width: 5.0),
+                  CustomText(
+                    text: "@" + post.user.username,
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 10.0),
-            CustomText(
-              text: post.description,
-            ),
-            Card(
-              child: Image.network(
-                "$mainUrl${post.image}",
-                height: 300,
-                width: 350,
-                fit: BoxFit.cover,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                    text: post.description,
+                  ),
+                  SizedBox(height: 5.0),
+                  Card(
+                    child: Image.network(
+                      "$mainUrl${post.image}",
+                      height: 300,
+                      width: 350,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
               ),
             ),
             Row(
