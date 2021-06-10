@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:socialapp/model/models.dart';
+
 import 'package:socialapp/model/post_model.dart';
 import 'package:socialapp/view/widget/post_card.dart';
+import 'package:socialapp/view/widget/widgets.dart';
 
 class DetailView extends StatelessWidget {
   final PostModel post;
 
-  const DetailView({Key key, this.post}) : super(key: key);
+  DetailView({this.post});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
         elevation: 0.0,
       ),
       body: GetBuilder<HomeViewModel>(
-        init: Get.put(HomeViewModel()),
+        init: HomeViewModel(),
         builder: (controller) => ListView.separated(
           physics: BouncingScrollPhysics(),
           itemCount: controller.posts.length,

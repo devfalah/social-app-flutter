@@ -17,7 +17,7 @@ class ControlViewModel extends GetxController {
         currentView = SearchView();
         break;
       case 2:
-        currentView = NotificationsView();
+        currentView = TopPostView();
         break;
       case 3:
         currentView = ProfileView();

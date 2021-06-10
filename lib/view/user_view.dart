@@ -31,11 +31,6 @@ class UserView extends StatelessWidget {
         ),
         panelBuilder: (ScrollController scroll) => Column(
           children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-              child: ItemsWidget(),
-            ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(

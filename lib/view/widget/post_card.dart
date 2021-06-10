@@ -68,14 +68,15 @@ class PostCard extends StatelessWidget {
                     text: post.description,
                   ),
                   SizedBox(height: 5.0),
-                  Card(
-                    child: Image.network(
-                      "$mainUrl${post.image}",
-                      height: 300,
-                      width: 350,
-                      fit: BoxFit.cover,
+                  if (post.image != null && post.image.isNotEmpty)
+                    Card(
+                      child: Image.network(
+                        "$mainUrl${post.image}",
+                        height: 300,
+                        width: 350,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),

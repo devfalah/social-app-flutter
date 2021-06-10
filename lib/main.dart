@@ -8,6 +8,7 @@ import 'helper/helper.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(ProfileViewModel());
+  Get.put(HomeViewModel());
   // CacheHelper.removeData('token');
   runApp(MyApp());
 }

@@ -54,11 +54,10 @@ class PostViewModel extends GetxController {
   }
 
   addPost() async {
-    upload();
     var id = await CacheHelper.getData('id');
 
     print(description);
-    print("+++++" + imageUrl);
+
     final res = await PostService().addPost({
       "description": description,
       'users_permissions_user': id,

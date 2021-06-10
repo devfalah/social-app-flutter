@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:socialapp/helper/cache_helper.dart';
 import 'package:socialapp/helper/http_helper.dart';
 import 'package:socialapp/model/post_model.dart';
@@ -18,11 +20,12 @@ class HomeService {
     if (res.statusCode == 200) {
       posts = postModelFromJson(res.body);
       print("=====" + res.body);
-      print("=====" + posts[0].likes.toString());
       print("token:" + posts.length.toString());
+
       return posts;
     } else {
       print(res.body);
+      return posts;
     }
   }
 

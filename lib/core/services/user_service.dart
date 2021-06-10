@@ -19,4 +19,22 @@ class UserService {
       print("error");
     }
   }
+
+  Future<UserModel> getUserDataById(id) async {
+    var token = await CacheHelper.getData('token');
+    final res = await HttpHelper.get(
+      path: "users/$id/",
+      headers: {
+        "Authorization": "Bearer " + token,
+      },
+    );
+    if (res.statusCode == 200) {
+      var user = UserModel.fromJson(res.body);
+      print(user.username);
+      return user;
+    } else {
+      print(res.body);
+      print("error");
+    }
+  }
 }

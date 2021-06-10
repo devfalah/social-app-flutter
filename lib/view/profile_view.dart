@@ -32,11 +32,6 @@ class ProfileView extends StatelessWidget {
                 ),
                 panelBuilder: (ScrollController scroll) => Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 12.0),
-                      child: ItemsWidget(),
-                    ),
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
@@ -108,7 +103,7 @@ class ProfileView extends StatelessWidget {
         ),
         FloatingActionButton(
           heroTag: "btn2",
-          child: Icon(Icons.people),
+          child: Icon(Icons.edit),
           backgroundColor: mainLightColor,
           onPressed: () {},
         ),

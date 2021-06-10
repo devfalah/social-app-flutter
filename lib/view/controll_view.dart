@@ -12,7 +12,6 @@ class ControllView extends StatelessWidget {
     return GetBuilder<AuthViewModel>(
       init: AuthViewModel(),
       builder: (authController) {
-        print("++++++++++++++++${authController.isToken}");
         return authController.isToken == false
             ? LoginView()
             : GetBuilder<ControlViewModel>(
@@ -57,7 +56,7 @@ class ControllView extends StatelessWidget {
       icons: [
         Icons.home,
         Icons.search,
-        Icons.notifications,
+        Icons.whatshot_outlined,
         Icons.person,
       ],
       activeIndex: controller.navigatorValue,
